@@ -1,8 +1,10 @@
 package com.mendes.dslist.dto;
 
 import com.mendes.dslist.entities.Game;
+import com.mendes.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
+
     private Long id;
     private String title;
     private Integer year;
@@ -10,7 +12,6 @@ public class GameMinDTO {
     private String shortDescription;
 
     public GameMinDTO() {
-
     }
 
     public GameMinDTO(Game entity) {
@@ -19,6 +20,14 @@ public class GameMinDTO {
         year = entity.getYear();
         imgUrl = entity.getImgUrl();
         shortDescription = entity.getShortDescription();
+    }
+
+    public GameMinDTO(GameMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
     }
 
     public Long getId() {
